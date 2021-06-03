@@ -44,6 +44,9 @@ YELL & SHOUT have near identical functionality. both print the provided DATATAPE
 TRIGGER prompts the user for input. Upon getting the input, it will store it in the provided cell value. This is the syntax:
 > TRIGGER (DATATAPE INDEX VALUE)
 
+## END
+Ends the application. Simple as that.
+
 # Example Program
 Here is a simple truth machine program done in SJW.
 > TRIGGER 1  
