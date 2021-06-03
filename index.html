@@ -92,7 +92,7 @@ async function run()
       	if (command[2] == "ADD")
       	{
         	worknumber += parseInt(datatape[parseInt(command[3])]);
-          console.log(datatape[parseInt(command[3])]);
+          //console.log(datatape[parseInt(command[3])]);
         }
         if (command[2] == "REMOVE")
       	{
@@ -151,8 +151,8 @@ async function run()
       //curREOP = 0;
       break;
     case 'END':
-    	console.log(datatape);
-  		console.log(worknumber);
+    	//console.log(datatape);
+  		//console.log(worknumber);
       console.log(curREOP);
   		console.log("END hit; Process finished.");
       running = false;
@@ -183,10 +183,10 @@ async function run()
       threadkill = false;
       return;
   }
-	console.log(datatape);
+/*	console.log(datatape);
   console.log(worknumber);
   console.log(code[curline]);
-  console.log("REOP: " + curREOP);
+  console.log("REOP: " + curREOP);*/
   if (threadkill)
   {
   	running = false;
