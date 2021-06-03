@@ -59,4 +59,4 @@ Here is a simple truth machine program done in SJW.
 > STORM 7  
 
 # Use
-To use this language, use this link. (ADD LINK)
+To use this language, use [this link](https://poleymagik.github.io/sjwlang/).
