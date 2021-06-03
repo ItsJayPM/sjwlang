@@ -46,14 +46,14 @@ TRIGGER prompts the user for input. Upon getting the input, it will store it in 
 
 # Example Program
 Here is a simple truth machine program done in SJW.
-> TRIGGER 1
-> DEMAND DATATAPE 2 BE 1
-> STUTTER 2
-> CHECK 1 IS 3
-> YELL 3
-> END
-> YELL 2
-> STORM 7
+> TRIGGER 1  
+> DEMAND DATATAPE 2 BE 1  
+> STUTTER 2  
+> CHECK 1 IS 3  
+> YELL 3  
+> END  
+> YELL 2  
+> STORM 7  
 
 # Use
 To use this language, use this link. (ADD LINK)
