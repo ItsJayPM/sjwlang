@@ -3,7 +3,8 @@
 SJW is a programming language that takes social justice to a new level. All commands in SJW not only allow you to preform various tasks, but along the way, help you right the wrongs of the internet.  
   
 In the SJW language, you use the "SJW Pointer". The pointer represents an SJW, and interprets your code going down, preforming SJW-ian tasks along the way. It starts at the top of your code, however, can travel backwards via the "storm" command, allowing you to storm into earlier lines of code.
-
+  
+The SJW language relies on a "Datatape" and a Work Number. The Datatape spans over 0 - 19.
 # Commands
 ## DEMAND
 DEMAND is your basic variable manipulation command, and likely what you will be using for most of your code. Arithmatic operations can only be done to the work number, however conditionals can only be done with the datatape, so it is important to be careful when using these. To do manipulations to the data table, you will use syntax similar to this:
@@ -42,3 +43,17 @@ YELL & SHOUT have near identical functionality. both print the provided DATATAPE
 ## TRIGGER
 TRIGGER prompts the user for input. Upon getting the input, it will store it in the provided cell value. This is the syntax:
 > TRIGGER (DATATAPE INDEX VALUE)
+
+# Example Program
+Here is a simple truth machine program done in SJW.
+> TRIGGER 1
+> DEMAND DATATAPE 2 BE 1
+> STUTTER 2
+> CHECK 1 IS 3
+> YELL 3
+> END
+> YELL 2
+> STORM 7
+
+# Use
+To use this language, use this link. (ADD LINK)
