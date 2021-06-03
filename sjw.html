@@ -1,0 +1,218 @@
+<textarea id="in" rows="20" cols="50"></textarea>
+<br/>
+<button type="button" onclick="newrun()">
+Run
+</button>
+<br/>
+<br/>
+<input type="text" id="subbies" name="fname" value=""><button type="button" onclick="submitrun()" visible="false">
+Trigger
+</button>
+<p id="out">
+OUT:
+</p>
+<script>
+function sleep(ms) {
+  return new Promise(
+    resolve => setTimeout(resolve, ms)
+  );
+}
+var linez = "TEMPORARY LINE; WILL BE REPLACED BY CODE";
+var curline = 0;
+var out = document.getElementById("out");
+var input = document.getElementById("subbies");
+var worknumber = 0;
+var datatape = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+var curREOP = 0;
+var submit = false;
+var cellZ = 0;
+var REPLAYon = false;
+var newREOP = 0;
+var running = false;
+var threadkill = false;
+async function newrun()
+{
+	if (!running)
+  {
+  	curline = 0;
+    worknumber = 0;
+    datatape = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    curREOP = 0;
+    REPLAYon = false;
+    newREOP = 0;
+    out.innerHTML = "OUT:";
+  	run();
+  }
+  else
+  {
+  	alert("Code currently running!!! Killing active thread...");
+  	threadkill = true;
+  }
+}
+function submitrun()
+{
+	if (submit)
+  {
+  	datatape[cellZ] = input.value;
+    curline++;
+  	run();
+  }
+}
+async function run()
+{
+	running = true;
+	var c1 = document.getElementById("in");
+  var c2 = c1.value;
+	var code = c2.split("\n");
+	var command = code[curline].split(" ");
+  switch (command[0]) {
+  	case 'DEMAND':
+    	if (command[1] == "DATATAPE" || command[1] == "DT")
+      {
+      	if (command[3] == "BE")
+      	{
+    			datatape[parseInt(command[2])] = parseInt(command[4]);
+        }
+        else if (command[3] == "READS")
+      	{
+        	datatape[parseInt(command[2])] = command[4];
+        }
+        else if (command[3] == "STEAL")
+      	{
+        	datatape[parseInt(command[2])] = worknumber;
+          worknumber = 0;
+        }
+        else
+        {
+        	console.log("Invalid operation.");
+        }
+      }
+      else if (command[1] == "WORKNUMBER")
+      {
+      	if (command[2] == "ADD")
+      	{
+        	worknumber += parseInt(datatape[parseInt(command[3])]);
+          console.log(datatape[parseInt(command[3])]);
+        }
+        if (command[2] == "REMOVE")
+      	{
+        	worknumber -= parseInt(datatape[parseInt(command[3])]);
+        }
+        if (command[2] == "BE")
+      	{
+        	worknumber = parseInt(datatape[parseInt(command[3])]);
+        }
+      }
+      else
+      {
+      console.log("Invalid Data Type.");
+      }
+      break;
+    case 'CHECK':
+    	if (command[2] == "IS")
+      {
+      	if (datatape[parseInt(command[1])] == datatape[parseInt(command[3])])
+        {
+        	curREOP = 0;
+        }
+        else
+        {
+        	if (curREOP != 0)
+          {
+          curline += curREOP;
+          curREOP = 0;
+          REPLAYon = false;
+          }else
+          {
+          curline += 1;
+          }
+          curREOP = 0;
+        }
+      }
+      else if (command[2] == "ISNT")
+      {
+        if (datatape[parseInt(command[1])] == datatape[parseInt(command[3])])
+        {
+        	if (curREOP != 0)
+          {
+          curline += curREOP;
+          REPLAYon = false;
+          }else
+          {
+          curline += 1;
+          }
+          curREOP = 0;
+        }
+        else
+        {
+        	curREOP = 0;
+        }
+      }
+      //curREOP = 0;
+      break;
+    case 'END':
+    	console.log(datatape);
+  		console.log(worknumber);
+      console.log(curREOP);
+  		console.log("END hit; Process finished.");
+      running = false;
+      threadkill = false;
+    	return;
+    case 'STUTTER':
+    	curREOP = parseInt(command[1]);
+      break;
+    case 'STORM':
+    	curREOP = 0;
+    	curline = parseInt(command[1]) - 2;
+      break;
+   	case 'YELL':
+    	out.innerHTML = out.innerHTML + datatape[parseInt(command[1])];
+    	break;
+   	case 'SCREAM':
+    	out.innerHTML = out.innerHTML + "<br/>" + datatape[parseInt(command[1])];
+    	break;
+    case 'TRIGGER':
+    	cellZ = command[1];
+      alert("The program is calling for input. Please input a value on the below input form and press \"Trigger\".")
+      curREOP = 0;
+    	submit = true;
+    	return;
+    default:
+    	console.log("Error: Unrecognized command.");
+      running = false;
+      threadkill = false;
+      return;
+  }
+	console.log(datatape);
+  console.log(worknumber);
+  console.log(code[curline]);
+  console.log("REOP: " + curREOP);
+  if (threadkill)
+  {
+  	running = false;
+    threadkill = false;
+  	return;
+  }
+	await sleep(100);
+  if (!REPLAYon)
+  {
+  	curline++;
+  }
+  else
+  {
+  	curREOP--;
+  }
+  if (curREOP > 0)
+  {
+  REPLAYon = true;
+  }
+  else
+  {
+  REPLAYon = false;
+  }
+  if (curline < code.length)
+  {
+	run();
+  }
+}
+</script>
