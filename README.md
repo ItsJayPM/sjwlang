@@ -14,6 +14,7 @@ Operations preformable by the demand datatape command include
 - BE - Stores the provided value in the datatape.
 - READS - Stores the provided string in the datatape.
 - STEAL - Takes the work number's value. DOESN'T REQUIRE VALUE PARAMETER.
+- HAS OPINION - Replaces your value with a random number, either 0 or 1. DOESN'T REQUIRE VALUE PARAMETER.
 
 The syntax for the work number manipulation looks like this:
 > DEMAND WORKVALUE (OPERATION) (DATATAPE INDEX VALUE)
