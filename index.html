@@ -161,7 +161,14 @@ async function run()
       threadkill = false;
     	return;
     case 'STUTTER':
-    	curREOP = parseInt(command[1]);
+	if (command[1] == "DATATAPE" || command[1] == "DT")
+	{
+		curREOP = datatape[parseInt(command[2])];
+	}
+	else
+	{
+    		curREOP = parseInt(command[1]);
+	}
       break;
     case 'STORM':
     	curREOP = 0;
@@ -172,6 +179,8 @@ async function run()
     	break;
    	case 'SCREAM':
     	out.innerHTML = out.innerHTML + "<br/>" + datatape[parseInt(command[1])];
+    	break;
+	case '#':
     	break;
     case 'TRIGGER':
     	cellZ = command[1];
