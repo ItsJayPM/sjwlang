@@ -150,9 +150,10 @@ async function run()
       {
         if (datatape[parseInt(command[1])] > datatape[parseInt(command[3])])
         {
-	}
-	      else{
-        	if (curREOP != 0)
+        }
+        else
+        {
+	if (curREOP != 0)
           {
           curline += curREOP;
           REPLAYon = false;
@@ -160,19 +161,15 @@ async function run()
           {
           curline += 1;
           }
-          curREOP = 0;
         }
-        else
-        {
-        	curREOP = 0;
-        }
+	curREOP = 0;
       }
       else if (command[2] == "LESSER")
       {
-      }
-		  else{
         if (datatape[parseInt(command[1])] < datatape[parseInt(command[3])])
         {
+	}
+	      else{
         	if (curREOP != 0)
           {
           curline += curREOP;
