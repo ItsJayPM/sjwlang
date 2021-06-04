@@ -145,6 +145,7 @@ async function run()
           }
           curREOP = 0;
         }
+      }
       else if (command[2] == "GREATER")
       {
         if (datatape[parseInt(command[1])] > datatape[parseInt(command[3])])
@@ -164,6 +165,7 @@ async function run()
         	curREOP = 0;
         }
       }
+  }
       else if (command[2] == "LESSER")
       {
         if (datatape[parseInt(command[1])] < datatape[parseInt(command[3])])
@@ -178,6 +180,7 @@ async function run()
           }
           curREOP = 0;
         }
+      }
       //curREOP = 0;
       break;
     case 'END':
