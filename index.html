@@ -83,7 +83,7 @@ async function run()
           worknumber = 0;
         }
 	else if (command[3] == "HAS" && command[4] == "OPINION")
-		datatape[parseInt(command[2])] = Math.floor(Math.random());
+		datatape[parseInt(command[2])] = Math.round(Math.random());
         else
         {
         	console.log("Invalid operation.");
