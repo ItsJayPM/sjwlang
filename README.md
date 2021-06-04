@@ -60,15 +60,15 @@ Here is a simple truth machine program done in SJW.
 > STORM 7  
 
 Here is a simple coin flip program in SJW.
-> DEMAND DATATAPE 2 READS HEADS
-> DEMAND DATATAPE 3 READS TAILS
-> DEMAND DATATAPE 0 HAS OPINION
-> STUTTER 2
-> CHECK 0 IS 1
-> SCREAM 2
-> END
-> SCREAM 3
-> END
+> DEMAND DATATAPE 2 READS HEADS  
+> DEMAND DATATAPE 3 READS TAILS  
+> DEMAND DATATAPE 0 HAS OPINION  
+> STUTTER 2  
+> CHECK 0 IS 1  
+> SCREAM 2  
+> END  
+> SCREAM 3  
+> END  
 
 # Use
 To use this language, use [this link](https://poleymagik.github.io/sjwlang/).
