@@ -72,3 +72,6 @@ Here is a simple coin flip program in SJW.
 
 # Use
 To use this language, use [this link](https://poleymagik.github.io/sjwlang/).
+
+#Disclaimer
+This is an ironic esolang, this is not by any sense of the word a viable programming language, it's designed to be confusing and annoying to work with. I also would like to add that the SJW theming is highly ironic, it was supposed to be a funny "what if a dev got so pissed at social justice they made an entire language to mock them?", SJW's, by the time this language was written, already fell out of style.
